@@ -16,77 +16,94 @@ class LoginPage extends StatelessWidget {
       backgroundColor: primaryColor,
       body: Align(
         alignment: Alignment.center,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            //Container: Image
-            Container(
-              height: deviceHeight * 0.25,
-              width: deviceWidth * 0.53,
-              decoration: BoxDecoration(
-                color: secondaryColor,
-                borderRadius: BorderRadius.circular(500),
-                image: const DecorationImage(
-                  image: AssetImage('assets/images/main_avatar.png'),
-                ),
-              ),
-            ),
-
-            //Container: Textfield for email
-            Container(
-              width: deviceWidth * 0.70,
-              child: const TextField(
-                cursorColor: Colors.white,
-                autocorrect: false,
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                  hintText: "Email",
-                  hintStyle: TextStyle(color: Colors.white),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
+        child: Container(
+          height: deviceHeight * 0.60,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              //Container: Image
+              Container(
+                height: deviceHeight * 0.25,
+                width: deviceWidth * 0.53,
+                decoration: BoxDecoration(
+                  color: secondaryColor,
+                  borderRadius: BorderRadius.circular(500),
+                  image: const DecorationImage(
+                    image: AssetImage('assets/images/main_avatar.png'),
                   ),
                 ),
               ),
-            ),
 
-            //Container: Textfield for password
-            Container(
-              width: deviceWidth * 0.70,
-              child: const TextField(
-                obscureText: true,
-                cursorColor: Colors.white,
-                autocorrect: false,
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                  hintText: "Password",
-                  hintStyle: TextStyle(color: Colors.white),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
+              //Separation
+              SizedBox(
+                height: deviceHeight * 0.05,
+              ),
+
+              //Container: Textfield for email
+              Container(
+                width: deviceWidth * 0.70,
+                child: const TextField(
+                  cursorColor: Colors.white,
+                  autocorrect: false,
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    hintText: "Email",
+                    hintStyle: TextStyle(color: Colors.white),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
                   ),
                 ),
               ),
-            ),
 
-            //Login Button
-            MaterialButton(
-              minWidth: deviceWidth * 0.38,
-              height: deviceHeight * 0.12,
-              color: Colors.white,
-              child: Text(
-                "LOGIN",
-                style: TextStyle(fontSize: 16, color: primaryColor),
+              //Container: Textfield for password
+              Container(
+                width: deviceWidth * 0.70,
+                child: const TextField(
+                  obscureText: true,
+                  cursorColor: Colors.white,
+                  autocorrect: false,
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    hintText: "Password",
+                    hintStyle: TextStyle(color: Colors.white),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                  ),
+                ),
               ),
-              onPressed: () {},
-            ),
-          ],
+
+              //Separation
+              SizedBox(
+                height: deviceHeight * 0.1,
+              ),
+
+              //Login Button
+              MaterialButton(
+                minWidth: deviceWidth * 0.38,
+                height: deviceHeight * 0.055,
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25),
+                  side: const BorderSide(color: Colors.white),
+                ),
+                onPressed: () {},
+                child: Text(
+                  "LOGIN",
+                  style: TextStyle(fontSize: 16, color: primaryColor),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
