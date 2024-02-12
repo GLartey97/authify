@@ -15,6 +15,24 @@ class LoginPage extends StatelessWidget {
     deviceHeight = MediaQuery.of(context).size.height;
     deviceWidth = MediaQuery.of(context).size.width;
 
-    return const Scaffold();
+    return Scaffold(
+      backgroundColor: primaryColor,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            height: deviceHeight * 0.25,
+            width: deviceHeight,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                image: AssetImage(),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
