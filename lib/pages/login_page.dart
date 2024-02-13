@@ -16,7 +16,7 @@ class LoginPage extends StatelessWidget {
       backgroundColor: primaryColor,
       body: Align(
         alignment: Alignment.center,
-        child: Container(
+        child: SizedBox(
           height: deviceHeight * 0.60,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -42,7 +42,7 @@ class LoginPage extends StatelessWidget {
               ),
 
               //Container: Textfield for email
-              Container(
+              SizedBox(
                 width: deviceWidth * 0.70,
                 child: const TextField(
                   cursorColor: Colors.white,
@@ -62,7 +62,7 @@ class LoginPage extends StatelessWidget {
               ),
 
               //Container: Textfield for password
-              Container(
+              SizedBox(
                 width: deviceWidth * 0.70,
                 child: const TextField(
                   obscureText: true,
