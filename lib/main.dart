@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Authify",
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: LoginPage(),
+      home: const AnimatedLoginPage(),
     );
   }
 }

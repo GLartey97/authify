@@ -1,8 +1,45 @@
 import 'package:flutter/material.dart';
 
+class AnimatedLoginPage extends StatefulWidget {
+  const AnimatedLoginPage({super.key});
+
+  @override
+  State<AnimatedLoginPage> createState() => _AnimatedLoginPageState();
+}
+
+class _AnimatedLoginPageState extends State<AnimatedLoginPage>
+    with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+      reverseDuration: const Duration(milliseconds: 400),
+    );
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return LoginPage(controller);
+  }
+}
+
 // ignore: must_be_immutable
 class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+  //AnimationController controller;
+
+  LoginPage(controller, {super.key}) {
+    controller = controller;
+  }
 
   Color primaryColor = const Color.fromRGBO(125, 191, 211, 1.0);
   Color secondaryColor = const Color.fromRGBO(169, 224, 241, 1.0);
