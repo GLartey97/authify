@@ -1,3 +1,4 @@
+import 'package:authify/utils/animations/login_page_animation.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedLoginPage extends StatefulWidget {
@@ -35,10 +36,13 @@ class _AnimatedLoginPageState extends State<AnimatedLoginPage>
 
 // ignore: must_be_immutable
 class LoginPage extends StatelessWidget {
-  //AnimationController controller;
+  late AnimationController controller;
+  late EnterAnimation animation;
 
   LoginPage(controller, {super.key}) {
     controller = controller;
+    animation = EnterAnimation(controller);
+    controller.forward();
   }
 
   Color primaryColor = const Color.fromRGBO(125, 191, 211, 1.0);
@@ -61,16 +65,28 @@ class LoginPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               //Container: Image
-              Container(
-                height: deviceHeight * 0.25,
-                width: deviceWidth * 0.53,
-                decoration: BoxDecoration(
-                  color: secondaryColor,
-                  borderRadius: BorderRadius.circular(500),
-                  image: const DecorationImage(
-                    image: AssetImage('assets/images/main_avatar.png'),
-                  ),
-                ),
+              AnimatedBuilder(
+                animation: animation.controller,
+                builder: (BuildContext context, Widget? widget) {
+                  return Transform(
+                    alignment: Alignment.center,
+                    transform: Matrix4.diagonal3Values(
+                        animation.circleSize.value,
+                        animation.circleSize.value,
+                        1),
+                    child: Container(
+                      height: deviceHeight * 0.25,
+                      width: deviceWidth * 0.53,
+                      decoration: BoxDecoration(
+                        color: secondaryColor,
+                        borderRadius: BorderRadius.circular(500),
+                        image: const DecorationImage(
+                          image: AssetImage('assets/images/main_avatar.png'),
+                        ),
+                      ),
+                    ),
+                  );
+                },
               ),
 
               //Separation
