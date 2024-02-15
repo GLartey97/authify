@@ -1,3 +1,4 @@
+import 'package:authify/pages/homepage.dart';
 import 'package:authify/utils/animations/login_page_animation.dart';
 import 'package:flutter/material.dart';
 
@@ -58,7 +59,7 @@ class LoginPage extends StatelessWidget {
       body: Align(
         alignment: Alignment.center,
         child: SizedBox(
-          height: deviceHeight * 0.60,
+          height: deviceHeight * 0.62,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             mainAxisSize: MainAxisSize.max,
@@ -149,7 +150,16 @@ class LoginPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(25),
                   side: const BorderSide(color: Colors.white),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return const Homepage();
+                      },
+                    ),
+                  );
+                },
                 child: Text(
                   "LOGIN",
                   style: TextStyle(fontSize: 16, color: primaryColor),
