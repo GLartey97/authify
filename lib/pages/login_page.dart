@@ -19,7 +19,7 @@ class _AnimatedLoginPageState extends State<AnimatedLoginPage>
     super.initState();
     controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 2),
+      duration: const Duration(seconds: 1),
       reverseDuration: const Duration(milliseconds: 400),
     );
   }
@@ -41,8 +41,7 @@ class LoginPage extends StatelessWidget {
   late AnimationController controller;
   late EnterAnimation animation;
 
-  LoginPage(controller, {super.key}) {
-    controller = controller;
+  LoginPage(this.controller, {super.key}) {
     animation = EnterAnimation(controller);
     controller.forward();
   }
@@ -151,7 +150,9 @@ class LoginPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(25),
                   side: const BorderSide(color: Colors.white),
                 ),
-                onPressed: () {
+                onPressed: () async {
+                  await controller.reverse();
+                  // ignore: use_build_context_synchronously
                   Navigator.pushReplacement(
                     context,
                     FadePageRoute(
