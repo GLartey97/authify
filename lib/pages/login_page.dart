@@ -1,5 +1,6 @@
 import 'package:authify/pages/homepage.dart';
 import 'package:authify/utils/animations/login_page_animation.dart';
+import 'package:authify/utils/page_routes/fade_page_route.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedLoginPage extends StatefulWidget {
@@ -153,10 +154,8 @@ class LoginPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(
-                      builder: (BuildContext context) {
-                        return const Homepage();
-                      },
+                    FadePageRoute(
+                      const Homepage(),
                     ),
                   );
                 },
