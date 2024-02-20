@@ -1,7 +1,48 @@
+import 'package:authify/utils/animations/login_page_animation.dart';
 import 'package:flutter/material.dart';
 
+class AnimatedHomePage extends StatefulWidget {
+  const AnimatedHomePage({super.key});
+
+  @override
+  State<AnimatedHomePage> createState() => _AnimatedHomePageState();
+}
+
+class _AnimatedHomePageState extends State<AnimatedHomePage>
+    with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+      reverseDuration: const Duration(milliseconds: 400),
+    );
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Homepage(controller);
+  }
+}
+
+// ignore: must_be_immutable
 class Homepage extends StatelessWidget {
-  const Homepage({super.key});
+  late AnimationController controller;
+  late EnterAnimation animation;
+
+  Homepage(this.controller, {super.key}) {
+    animation = EnterAnimation(controller);
+    controller.forward();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,18 +62,30 @@ class Homepage extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              //Container: Image
-              Container(
-                height: deviceHeight * 0.25,
-                width: deviceWidth * 0.53,
-                decoration: BoxDecoration(
-                  color: primaryColor,
-                  borderRadius: BorderRadius.circular(500),
-                  image: const DecorationImage(
-                    image: AssetImage("assets/images/main_avatar.png"),
-                  ),
-                ),
-              ),
+              //Container: Avatar Image
+              AnimatedBuilder(
+                  animation: animation.controller,
+                  builder: (context, widget) {
+                    return Transform(
+                      alignment: Alignment.center,
+                      transform: Matrix4.diagonal3Values(
+                        animation.circleSize.value,
+                        animation.circleSize.value,
+                        1,
+                      ),
+                      child: Container(
+                        height: deviceHeight * 0.25,
+                        width: deviceWidth * 0.53,
+                        decoration: BoxDecoration(
+                          color: primaryColor,
+                          borderRadius: BorderRadius.circular(500),
+                          image: const DecorationImage(
+                            image: AssetImage("assets/images/main_avatar.png"),
+                          ),
+                        ),
+                      ),
+                    );
+                  }),
 
               //separation
               SizedBox(

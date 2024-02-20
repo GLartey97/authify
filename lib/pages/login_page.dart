@@ -65,7 +65,7 @@ class LoginPage extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              //Container: Image
+              //Container: Avatar Image
               AnimatedBuilder(
                 animation: animation.controller,
                 builder: (BuildContext context, Widget? widget) {
@@ -156,7 +156,7 @@ class LoginPage extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     FadePageRoute(
-                      const Homepage(),
+                      const AnimatedHomePage(),
                     ),
                   );
                 },
