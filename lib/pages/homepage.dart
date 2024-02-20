@@ -93,14 +93,12 @@ class Homepage extends StatelessWidget {
               ),
 
               //Name Widget
-              Container(
-                child: Text(
-                  "GIZER",
-                  style: TextStyle(
-                    color: primaryColor,
-                    fontSize: 36,
-                    fontWeight: FontWeight.w400,
-                  ),
+              Text(
+                "GIZER",
+                style: TextStyle(
+                  color: primaryColor,
+                  fontSize: 36,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
 
