@@ -1,4 +1,6 @@
+import 'package:authify/pages/login_page.dart';
 import 'package:authify/utils/animations/login_page_animation.dart';
+import 'package:authify/utils/page_routes/slide_page_route.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedHomePage extends StatefulWidget {
@@ -119,7 +121,14 @@ class Homepage extends StatelessWidget {
                     width: 3,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    SlidePageRoute(
+                      const AnimatedLoginPage(),
+                    ),
+                  );
+                },
                 child: Text(
                   "LOGOUT",
                   style: TextStyle(fontSize: 16, color: primaryColor),
