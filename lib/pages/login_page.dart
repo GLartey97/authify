@@ -68,7 +68,7 @@ class LoginPage extends StatelessWidget {
               //Container: Avatar Image
               AnimatedBuilder(
                 animation: animation.controller,
-                builder: (BuildContext context, Widget? widget) {
+                builder: (context, widget) {
                   return Transform(
                     alignment: Alignment.center,
                     transform: Matrix4.diagonal3Values(
